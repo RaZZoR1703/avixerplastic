@@ -10,24 +10,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 <!-- Тара: SVG-символы, тон задается переменной --tint -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <linearGradient id="g-body" x1="0" x2="1">
-      <stop offset="0" style="stop-color:var(--tint);stop-opacity:.95"/>
-      <stop offset=".22" style="stop-color:var(--tint);stop-opacity:.35"/>
-      <stop offset=".5" style="stop-color:var(--tint);stop-opacity:.18"/>
-      <stop offset=".78" style="stop-color:var(--tint);stop-opacity:.45"/>
-      <stop offset="1" style="stop-color:var(--tint);stop-opacity:.95"/>
-    </linearGradient>
-    <linearGradient id="g-solid" x1="0" x2="1">
-      <stop offset="0" style="stop-color:var(--tint)" stop-opacity="1"/>
-      <stop offset=".35" style="stop-color:var(--tint)" stop-opacity=".82"/>
-      <stop offset=".7" style="stop-color:var(--tint)" stop-opacity=".95"/>
-      <stop offset="1" style="stop-color:var(--tint)" stop-opacity="1"/>
+    <linearGradient id="g-shade" x1="0" x2="1">
+      <stop offset="0" stop-color="#000" stop-opacity=".45"/>
+      <stop offset=".25" stop-color="#000" stop-opacity="0"/>
+      <stop offset=".42" stop-color="#fff" stop-opacity=".18"/>
+      <stop offset=".6" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".5"/>
     </linearGradient>
     <linearGradient id="g-shine" x1="0" x2="1">
       <stop offset="0" stop-color="#fff" stop-opacity="0"/>
@@ -39,35 +33,35 @@
     <rect x="44" y="2" width="32" height="24" rx="3" style="fill:var(--cap,#e9edf2)"/>
     <g style="stroke:rgba(0,0,0,.18)" stroke-width="1.2"><path d="M48 6v16M53 6v16M58 6v16M63 6v16M68 6v16M73 6v16"/></g>
     <rect x="42" y="28" width="36" height="5" rx="2" style="fill:var(--cap,#e9edf2)" opacity=".85"/>
-    <path d="M48 33 L48 56 C48 76 22 84 22 112 L22 262 C22 280 31 292 46 292 L74 292 C89 292 98 280 98 262 L98 112 C98 84 72 76 72 56 L72 33 Z" fill="url(#g-body)" style="stroke:var(--tint)" stroke-opacity=".9" stroke-width="1.5"/>
+    <path d="M48 33 L48 56 C48 76 22 84 22 112 L22 262 C22 280 31 292 46 292 L74 292 C89 292 98 280 98 262 L98 112 C98 84 72 76 72 56 L72 33 Z" fill-opacity=".38" style="fill:var(--tint);stroke:var(--tint)" stroke-opacity=".9" stroke-width="1.5"/><path d="M48 33 L48 56 C48 76 22 84 22 112 L22 262 C22 280 31 292 46 292 L74 292 C89 292 98 280 98 262 L98 112 C98 84 72 76 72 56 L72 33 Z" fill="url(#g-shade)"/>
     <path d="M22 150 H98 M22 158 H98 M22 236 H98 M22 244 H98" style="stroke:var(--tint)" stroke-opacity=".55" stroke-width="1.2"/>
     <rect x="22" y="172" width="76" height="52" style="fill:var(--label,transparent)"/>
     <rect x="31" y="96" width="9" height="180" rx="4.5" fill="url(#g-shine)" opacity=".7"/>
   </symbol>
   <symbol id="s-preform" viewBox="0 0 120 300">
-    <rect x="40" y="2" width="40" height="38" rx="3" fill="url(#g-body)" style="stroke:var(--tint)" stroke-width="1.5"/>
+    <rect x="40" y="2" width="40" height="38" rx="3" fill-opacity=".38" style="fill:var(--tint);stroke:var(--tint)" stroke-width="1.5"/><rect x="40" y="2" width="40" height="38" rx="3" fill="url(#g-shade)"/>
     <path d="M40 10h40M40 18h40M40 26h40" style="stroke:var(--tint)" stroke-opacity=".7" stroke-width="2"/>
-    <rect x="30" y="42" width="60" height="9" rx="3" fill="url(#g-body)" style="stroke:var(--tint)" stroke-width="1.5"/>
-    <path d="M40 53 L40 252 C40 280 50 292 60 292 C70 292 80 280 80 252 L80 53 Z" fill="url(#g-body)" style="stroke:var(--tint)" stroke-width="1.5"/>
+    <rect x="30" y="42" width="60" height="9" rx="3" fill-opacity=".38" style="fill:var(--tint);stroke:var(--tint)" stroke-width="1.5"/><rect x="30" y="42" width="60" height="9" rx="3" fill="url(#g-shade)"/>
+    <path d="M40 53 L40 252 C40 280 50 292 60 292 C70 292 80 280 80 252 L80 53 Z" fill-opacity=".38" style="fill:var(--tint);stroke:var(--tint)" stroke-width="1.5"/><path d="M40 53 L40 252 C40 280 50 292 60 292 C70 292 80 280 80 252 L80 53 Z" fill="url(#g-shade)"/>
     <rect x="46" y="66" width="6" height="190" rx="3" fill="url(#g-shine)" opacity=".7"/>
   </symbol>
   <symbol id="s-bucket" viewBox="0 0 200 220">
     <path d="M28 70 C28 -6 172 -6 172 70" fill="none" style="stroke:var(--handle,#c9d0d8)" stroke-width="5" stroke-linecap="round"/>
     <rect x="20" y="54" width="160" height="20" rx="5" style="fill:var(--lid,var(--tint))"/>
-    <path d="M26 74 H174 L160 206 C159 213 154 216 147 216 H53 C46 216 41 213 40 206 Z" fill="url(#g-solid)"/>
+    <path d="M26 74 H174 L160 206 C159 213 154 216 147 216 H53 C46 216 41 213 40 206 Z" style="fill:var(--tint)" fill-opacity="1"/><path d="M26 74 H174 L160 206 C159 213 154 216 147 216 H53 C46 216 41 213 40 206 Z" fill="url(#g-shade)"/>
     <path d="M28 92 H172 M30 108 H170" style="stroke:rgba(0,0,0,.12)" stroke-width="2"/>
     <rect x="50" y="128" width="100" height="56" rx="4" style="fill:var(--label,transparent)"/>
     <rect x="44" y="80" width="10" height="126" rx="5" fill="url(#g-shine)" opacity=".45"/>
   </symbol>
   <symbol id="s-cup" viewBox="0 0 140 180">
     <rect x="12" y="10" width="116" height="12" rx="5" style="fill:var(--lid,var(--tint))"/>
-    <path d="M16 22 H124 L110 168 C109 174 105 176 99 176 H41 C35 176 31 174 30 168 Z" fill="url(#g-solid)"/>
+    <path d="M16 22 H124 L110 168 C109 174 105 176 99 176 H41 C35 176 31 174 30 168 Z" style="fill:var(--tint)" fill-opacity="1"/><path d="M16 22 H124 L110 168 C109 174 105 176 99 176 H41 C35 176 31 174 30 168 Z" fill="url(#g-shade)"/>
     <rect x="40" y="70" width="60" height="44" rx="3" style="fill:var(--label,transparent)"/>
     <rect x="30" y="30" width="8" height="136" rx="4" fill="url(#g-shine)" opacity=".45"/>
   </symbol>
   <symbol id="s-cap" viewBox="0 0 140 100">
     <ellipse cx="70" cy="22" rx="56" ry="14" style="fill:var(--tint)" opacity=".9"/>
-    <path d="M14 22 V72 C14 82 40 90 70 90 C100 90 126 82 126 72 V22 C126 32 100 36 70 36 C40 36 14 32 14 22Z" fill="url(#g-solid)"/>
+    <path d="M14 22 V72 C14 82 40 90 70 90 C100 90 126 82 126 72 V22 C126 32 100 36 70 36 C40 36 14 32 14 22Z" style="fill:var(--tint)" fill-opacity="1"/><path d="M14 22 V72 C14 82 40 90 70 90 C100 90 126 82 126 72 V22 C126 32 100 36 70 36 C40 36 14 32 14 22Z" fill="url(#g-shade)"/>
     <g style="stroke:rgba(0,0,0,.2)" stroke-width="2"><path d="M24 40v38M34 42v40M44 43v42M54 44v42M64 44v43M74 44v43M84 44v42M94 43v42M104 42v40M114 40v38"/></g>
     <path d="M14 70 C14 80 40 86 70 86 C100 86 126 80 126 70" fill="none" style="stroke:rgba(0,0,0,.25)" stroke-width="2" stroke-dasharray="6 4"/>
   </symbol>
@@ -328,7 +322,7 @@
   <a href="#request" class="btn btn--accent mbar__cta" data-i18n="cta.request">Оставить заявку</a>
 </div>
 
-<script src="i18n.js"></script>
-<script src="app.js"></script>
+<script src="i18n.js?v=5"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

@@ -72,7 +72,7 @@
   let curCat = 'bottles';
   const tabs = $('#tabs');
   function renderTabs() {
-    tabs.innerHTML = Object.keys(C).map((k) => `<button class="tab" role="tab" type="button" id="tab-${k}" aria-controls="cat-panel" aria-selected="${k === curCat}" tabindex="${k === curCat ? 0 : -1}" data-k="${k}" style="--tint:${C[k].tint}">${sym(k, 'aria-hidden="true"')}${L(C[k].name)}</button>`).join('');
+    tabs.innerHTML = Object.keys(C).map((k) => `<button class="tab" role="tab" type="button" id="tab-${k}" aria-controls="cat-panel" aria-selected="${k === curCat}" tabindex="${k === curCat ? 0 : -1}" data-k="${k}" style="--tint:${C[k].tint}">${sym(k, 'aria-hidden="true"')}${t('cat.' + k)}</button>`).join('');
   }
   tabs.addEventListener('click', (e) => { const b = e.target.closest('.tab'); if (b) selectCat(b.dataset.k); });
   tabs.addEventListener('keydown', (e) => {
@@ -97,7 +97,7 @@
     $('#cat-items').innerHTML = c.items.map(([v, n, u]) => `
       <article class="item" style="--tint:${c.tint};--cap:#5cc8e0;--lid:#5cc8e0">
         <div class="item__art" aria-hidden="true">${sym(k)}</div>
-        <h4>${L(c.name).replace(/ \(.+\)/, '')} ${v}</h4>
+        <h4>${t('cat.' + k)} ${v}</h4>
         <dl><dt>${L(CL.vol)}</dt><dd>${v}</dd><dt>${L(CL.neck)}</dt><dd>${L(n)}</dd><dt>${L(CL.use)}</dt><dd>${L(u)}</dd></dl>
         <button class="item__go" type="button" data-type="${k}" data-vol="${v}">${t('cat.pick')} →</button>
       </article>`).join('');
