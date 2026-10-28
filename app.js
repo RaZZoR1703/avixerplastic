@@ -35,13 +35,13 @@
     caps: [['screw', {ru:'Винтовая',uz:'Vintli',en:'Screw'}], ['sport', {ru:'Спорт',uz:'Sport',en:'Sport'}], ['handle', {ru:'С ручкой',uz:'Tutqichli',en:'With handle'}]]
   };
   const COLORS = [
-    ['clear', '#c9eef6', {ru:'Прозрачный',uz:'Shaffof',en:'Clear'}],
-    ['blue', '#5cc8e0', {ru:'Голубой',uz:'Havorang',en:'Light blue'}],
-    ['green', '#57b38a', {ru:'Зеленый',uz:'Yashil',en:'Green'}],
-    ['amber', '#b8742e', {ru:'Коричневый',uz:'Jigarrang',en:'Amber'}],
-    ['white', '#f2f4f7', {ru:'Белый',uz:'Oq',en:'White'}],
-    ['black', '#2b3036', {ru:'Черный',uz:'Qora',en:'Black'}],
-    ['custom', 'conic-gradient(#e85d5d,#e8c95d,#5de88a,#5dc8e8,#a25de8,#e85d5d)', {ru:'Свой цвет',uz:'Oʻz rangingiz',en:'Custom color'}]
+    ['clear', '#cfe6f3', {ru:'Прозрачный',uz:'Shaffof',en:'Clear'}],
+    ['blue', '#3d8fd6', {ru:'Голубой',uz:'Havorang',en:'Light blue'}],
+    ['green', '#3fa27a', {ru:'Зеленый',uz:'Yashil',en:'Green'}],
+    ['amber', '#a8642a', {ru:'Коричневый',uz:'Jigarrang',en:'Amber'}],
+    ['white', '#f4f6f8', {ru:'Белый',uz:'Oq',en:'White'}],
+    ['black', '#26303b', {ru:'Черный',uz:'Qora',en:'Black'}],
+    ['custom', 'conic-gradient(#e3874a,#e8c95d,#3fa27a,#3d8fd6,#0b4a8f,#e3874a)', {ru:'Свой цвет',uz:'Oʻz rangingiz',en:'Custom color'}]
   ];
   const BRAND = [['none', {ru:'Без нанесения',uz:'Logotipsiz',en:'No branding'}], ['logo', {ru:'Логотип / этикетка',uz:'Logotip / yorliq',en:'Logo / label'}], ['mold', {ru:'Своя форма под бренд',uz:'Brend uchun oʻz shakli',en:'Custom mold for your brand'}]];
   const QTY = [1000, 5000, 10000, 25000, 50000, 100000, 250000, 500000];
@@ -91,11 +91,11 @@
   function renderCat(k) {
     const c = C[k];
     $('#cat-panel').setAttribute('aria-labelledby', `tab-${k}`);
-    $('#cat-visual').innerHTML = `<div style="--tint:${c.tint};--cap:#5cc8e0;--lid:#5cc8e0;height:100%">${sym(k, 'aria-hidden="true"')}</div>`;
+    $('#cat-visual').innerHTML = `<div style="--tint:${c.tint};--cap:#1f5fae;--lid:#1f5fae;height:100%">${sym(k, 'aria-hidden="true"')}</div>`;
     $('#cat-name').textContent = L(c.name);
     $('#cat-desc').textContent = L(c.desc);
     $('#cat-items').innerHTML = c.items.map(([v, n, u]) => `
-      <article class="item" style="--tint:${c.tint};--cap:#5cc8e0;--lid:#5cc8e0">
+      <article class="item" style="--tint:${c.tint};--cap:#1f5fae;--lid:#1f5fae">
         <div class="item__art" aria-hidden="true">${sym(k)}</div>
         <h4>${t('cat.' + k)} ${v}</h4>
         <dl><dt>${L(CL.vol)}</dt><dd>${v}</dd><dt>${L(CL.neck)}</dt><dd>${L(n)}</dd><dt>${L(CL.use)}</dt><dd>${L(u)}</dd></dl>
@@ -155,10 +155,10 @@
     qty.value = state.qty;
     qty.setAttribute('aria-valuetext', rows[5][1]);
     const col = COLORS.find((c) => c[0] === state.color)[1];
-    const tint = col.startsWith('#') ? col : '#e8c95d';
+    const tint = col.startsWith('#') ? col : '#e3874a';
     const capOn = !['none'].includes(state.closure);
     const label = state.brand === 'logo' ? 'rgba(255,255,255,.85)' : 'transparent';
-    const style = `--tint:${tint};--cap:${capOn ? '#5cc8e0' : 'transparent'};--lid:${capOn ? '#5cc8e0' : 'transparent'};--handle:${capOn || state.type !== 'buckets' ? '#c9d0d8' : '#c9d0d8'};--label:${label}`;
+    const style = `--tint:${tint};--cap:${capOn ? '#1f5fae' : 'transparent'};--lid:${capOn ? '#1f5fae' : 'transparent'};--handle:${capOn || state.type !== 'buckets' ? '#c9d0d8' : '#c9d0d8'};--label:${label}`;
     const v = $('#spec-view');
     const badge = state.brand === 'logo' ? '<span class="logo-badge">LOGO</span>' : state.brand === 'mold' ? `<span class="logo-badge">${lang === 'en' ? 'CUSTOM MOLD' : lang === 'uz' ? 'OʻZ SHAKLI' : 'СВОЯ ФОРМА'}</span>` : '';
     const scale = { bottles: [70, 80, 88, 92, 100], preforms: [70, 80, 88, 100], buckets: [55, 68, 78, 90, 100], cups: [62, 74, 86, 100], caps: [45, 52, 60, 70] }[state.type][VOL[state.type].indexOf(state.volume)] || 100;
@@ -279,6 +279,9 @@
       m.addEventListener('pointerleave', () => { m.style.setProperty('--mx', '0px'); m.style.setProperty('--my', '0px'); });
     });
   }
+
+  const cfgForm = document.getElementById("cfg");
+  if (cfgForm) cfgForm.addEventListener("submit", (e) => e.preventDefault());
 
   applyLang(lang);
   onScroll();
